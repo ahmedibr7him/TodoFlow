@@ -2,8 +2,13 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
+const getInitialTodos = () => {
+  const stored = localStorage.getItem("todos");
+  return stored ? JSON.parse(stored) : [];
+};
+
 const InitialData={
-    items:[],
+    items:getInitialTodos(),
     filter:"All",
     isAddingTodo:false,
     isclosedModal:false,
